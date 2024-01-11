@@ -1,0 +1,51 @@
+{
+    "[django-html]": {
+        "editor.formatOnSave": false
+    },
+
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.insertSpaces": true,
+        "gitlens.codeLens.symbolScopes": [
+            "!Module"
+        ],
+        "editor.wordBasedSuggestions": false
+    },
+
+    "files.associations":{
+        "**/templates/**/*.html":"django-html",
+        "*.py":"python",
+        "*.js":"javascript",
+        "*.ts":"typescript",
+        "*.scss":"scss",
+        "*.css":"css",
+        "*.pylintrc-django":"ini",
+        "*.toml":"toml"
+    },
+    "files.autoSave": "afterDelay",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "**/.venv/**": true
+    },
+
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+
+    "python.languageServer": "Pylance",
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.mypyEnabled": true,
+
+    "pylint.args": ["--rcfile=.pylintrc"],
+    "isort.args": ["--profile", "black"],
+    "autoDocstring.docstringFormat": "google",
+}

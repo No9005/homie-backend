@@ -1,0 +1,28 @@
+name: homie_backend
+services:
+
+  homie_backend:
+    build:
+      context: .
+    image: homie_backend
+    container_name: homie_backend
+    restart: unless-stopped
+    volumes:
+      - .:/web/app
+    environment:
+      DJANGO_SETTINGS_MODULE: api.settings.settings
+      VIRTUAL_HOST: api.homie.com
+      MYSQL_HOST: 
+      MYSQL_DB: 
+      MYSQL_USER: 
+      MYSQL_PASSWORD: 
+      MYSQL_TEST_USER: 
+      MYSQL_TEST_PASSWORD:
+      MYSQL_TEST_DB: 
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-"django-insecure-b+rf$k8)1dq%^_sm*xt83uveurxhtgmab4^=pwy08#@v!xlegg"}
+      ENABLE_DJANGO_DEBUG_TOOLBAR: ${ENABLE_DJANGO_DEBUG_TOOLBAR:-False}
+
+networks:
+  default:
+    name: homie
+    external: true

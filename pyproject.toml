@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "homie-backend"
+version = "0.1.0"
+description = "Homie app backend"
+authors = ["Daniel Kiermeier <kiermeier.dan@gmail.com>"]
+license = "LICENSE"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.1"
+djangorestframework = "^3.14.0"
+django-filter = "^23.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+combine_as_imports = true
