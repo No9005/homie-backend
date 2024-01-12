@@ -1,0 +1,22 @@
+default_md = sha256
+default_bits = 4096
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+x509_extensions = v3_req
+extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+C = DE
+ST = Bayern
+L = München
+O = Homie
+CN = *.homie-dev.com
+
+[v3_req]
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = *.homie-dev.de
