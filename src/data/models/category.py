@@ -7,6 +7,7 @@ class Category(models.Model):
         max_length=50,
         null=False,
         blank=False,
+        unique=True,
         verbose_name=_("Name"),
     )
     description = models.TextField(
@@ -19,3 +20,6 @@ class Category(models.Model):
     class Meta:
         verbose_name = _("category")
         verbose_name_plural = _("categories")
+
+    def __str__(self) -> str:
+        return f"{self.name}"

@@ -15,6 +15,12 @@ class Transaction(models.Model):
         blank=False,
         verbose_name=_("Amount"),
     )
+    description = models.TextField(
+        max_length=140,
+        null=False,
+        blank=False,
+        verbose_name=_("Description"),
+    )
     user = models.ForeignKey(
         to="auth.User",
         on_delete=models.DO_NOTHING,
@@ -22,7 +28,7 @@ class Transaction(models.Model):
         blank=False,
         verbose_name=_("User"),
     )
-    booking_date = models.DateTimeField(
+    date = models.DateTimeField(
         default=timezone.now,
         null=False,
         blank=True,
@@ -30,7 +36,7 @@ class Transaction(models.Model):
     )
     category = models.ForeignKey(
         to="data.Category",
-        on_delete=models.RESTRICT,
+        on_delete=models.DO_NOTHING,
         null=False,
         blank=False,
         verbose_name=_("Category"),
@@ -48,15 +54,17 @@ class Transaction(models.Model):
         default=CashFlowChoices.SPENDING,
         verbose_name=_("Cash Flow type"),
     )
-    tax_consultant_relevant = models.BooleanField(
-        default=False,
-        null=False,
+    tax_consultant = models.ForeignKey(
+        to="data.TaxConsultant",
+        on_delete=models.DO_NOTHING,
+        null=True,
         blank=True,
-        verbose_name=_("Tax Consultant relevant"),
+        verbose_name=_("Tax Consultant"),
     )
-    business_related = models.BooleanField(
-        default=False,
-        null=False,
+    business_related = models.ForeignKey(
+        to="data.Business",
+        on_delete=models.DO_NOTHING,
+        null=True,
         blank=True,
         verbose_name=_("Business related"),
     )
@@ -64,3 +72,6 @@ class Transaction(models.Model):
     class Meta:
         verbose_name = _("transaction")
         verbose_name_plural = _("transactions")
+
+    def __str__(self) -> str:
+        return f"{self.description} | {self.amount} | {self.date}"

@@ -38,13 +38,18 @@ ENABLE_DJANGO_DEBUG_TOOLBAR = os.environ.get("ENABLE_DJANGO_DEBUG_TOOLBAR", "Fal
 # Application definition
 
 INSTALLED_APPS = [
+    ## Django ##
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    ## Third Party apps ##
     "rest_framework",
+    "phonenumber_field",
+    ## custom apps ##
+    "data",
 ]
 
 MIDDLEWARE = [
