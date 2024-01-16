@@ -68,10 +68,16 @@ class Transaction(models.Model):
         blank=True,
         verbose_name=_("Business related"),
     )
+    private = models.BooleanField(
+        default=False,
+        null=False,
+        blank=True,
+        verbose_name=_("Private Transaction"),
+    )
 
     class Meta:
-        verbose_name = _("transaction")
-        verbose_name_plural = _("transactions")
+        verbose_name = _("Transaction")
+        verbose_name_plural = _("Transactions")
 
     def __str__(self) -> str:
         return f"{self.description} | {self.amount} | {self.date}"

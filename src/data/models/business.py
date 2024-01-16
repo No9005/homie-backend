@@ -11,8 +11,8 @@ class Business(models.Model):
     )
 
     class Meta:
-        verbose_name = _("business")
-        verbose_name_plural = _("businesses")
+        verbose_name = _("Business")
+        verbose_name_plural = _("Businesses")
 
     def __str__(self) -> str:
         return f"{self.name}"

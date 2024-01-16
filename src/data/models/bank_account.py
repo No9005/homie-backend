@@ -18,15 +18,13 @@ class BankAccount(models.Model):
     )
     owner = models.ManyToManyField(
         to="auth.User",
-        on_delete=models.RESTRICT,
-        null=False,
         blank=False,
         verbose_name=_("Owner"),
     )
 
     class Meta:
-        verbose_name = _("bank account")
-        verbose_name_plural = _("bank accounts")
+        verbose_name = _("Bank account")
+        verbose_name_plural = _("Bank accounts")
 
     def __str__(self) -> str:
         return f"{self.name} | IBAN: {self.IBAN}"

@@ -52,12 +52,12 @@ class TaxConsultant(models.Model):
     )
 
     class Meta:
-        verbose_name = _("tax consultant")
-        verbose_name_plural = _("tax consultants")
+        verbose_name = _("Tax consultant")
+        verbose_name_plural = _("Tax consultants")
 
     def __str__(self) -> str:
         return f"{self.firstname} {self.lastname}"
 
     def clean(self):
         if TaxConsultant.objects.filter(firstname=self.firstname, lastname=self.lastname).exists():
-            raise ValidationError(_("Tax consultant '{self}' does already exist"))
+            raise ValidationError(_("Tax consultant '{}' does already exist").format(str(self)))
