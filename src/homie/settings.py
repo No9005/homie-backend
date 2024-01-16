@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     ## Third Party apps ##
     "rest_framework",
     "phonenumber_field",
+    "django_filters",
     ## custom apps ##
     "data",
 ]
@@ -154,6 +155,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 500,
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.OrderingFilter",
     ],
 }
 
