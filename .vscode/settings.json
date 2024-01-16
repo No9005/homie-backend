@@ -41,9 +41,6 @@
 
     "python.languageServer": "Pylance",
     "python.defaultInterpreterPath": ".venv/bin/python",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.mypyEnabled": true,
 
     "pylint.args": ["--rcfile=.pylintrc"],
     "isort.args": ["--profile", "black"],

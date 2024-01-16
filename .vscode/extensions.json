@@ -1,16 +1,17 @@
 {
     "recommendations": [
         "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.pylint",
+        "ms-python.isort",
+        "ms-python.mypy-type-checker",
+        "ms-vscode.makefile-tools",
         "dotjoshjohnson.xml",
         "eamodio.gitlens",
-        "ms-python.pylint",
-        "ms-python.black-formatter",
         "njpwerner.autodocstring",
         "streetsidesoftware.code-spell-checker",
         "mhutchie.git-graph",
-        "ms-python.isort",
         "batisteo.vscode-django",
         "ecmel.vscode-html-css",
-        "ms-vscode.makefile-tools",
     ]
 }
