@@ -6,4 +6,7 @@ from data.models import Business
 class BusinessSerializer(ModelSerializer):
     class Meta:
         model = Business
-        fields = "__all__"
+        fields = (
+            "pk",
+            "name",
+        )

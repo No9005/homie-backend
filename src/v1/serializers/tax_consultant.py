@@ -6,4 +6,14 @@ from data.models import TaxConsultant
 class TaxConsultantSerializer(ModelSerializer):
     class Meta:
         model = TaxConsultant
-        fields = "__all__"
+        fields = (
+            "pk",
+            "firstname",
+            "lastname",
+            "street",
+            "house_nr",
+            "postal",
+            "city",
+            "phone",
+            "email",
+        )

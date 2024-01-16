@@ -6,4 +6,9 @@ from data.models import BankAccount
 class BankAccountSerializer(ModelSerializer):
     class Meta:
         model = BankAccount
-        fields = "__all__"
+        fields = (
+            "pk",
+            "name",
+            "IBAN",
+            "owner",
+        )
