@@ -33,7 +33,8 @@ class TaxConsultant(models.Model):
         blank=True,
         verbose_name=_("Postal"),
     )
-    city = models.IntegerField(
+    city = models.TextField(
+        max_length=20,
         null=True,
         blank=True,
         verbose_name=_("City"),
