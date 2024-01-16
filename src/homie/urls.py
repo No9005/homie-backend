@@ -21,6 +21,7 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
+    path("v1/", include("v1.urls")),
 ]
 
 if settings.ENABLE_DJANGO_DEBUG_TOOLBAR:
