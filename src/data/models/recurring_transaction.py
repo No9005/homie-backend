@@ -1,8 +1,11 @@
+from collections.abc import Iterable
+
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from data.models.transaction import Transaction
+from utils import recurring_transaction as utils
 
 
 def between_one_and_thirty_one(day: int):
@@ -25,3 +28,17 @@ class RecurringTransaction(Transaction):
 
     def __str__(self) -> str:
         return str(self.day)
+
+    def save(
+        self,
+        force_insert: bool = False,
+        force_update: bool = False,
+        using: str | None = None,
+        update_fields: Iterable[str] | None = None,
+    ) -> None:
+        super().save(force_insert, force_update, using, update_fields)
+        utils.register(self)
+
+    def delete(self, using=None, keep_parents=False):
+        super().delete(using, keep_parents)
+        utils.unregister(self)

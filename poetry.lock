@@ -203,6 +203,43 @@ phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
 [[package]]
+name = "django-picklefield"
+version = "3.1"
+description = "Pickled object field for Django"
+optional = false
+python-versions = ">=3"
+files = [
+    {file = "django-picklefield-3.1.tar.gz", hash = "sha256:c786cbeda78d6def2b43bff4840d19787809c8909f7ad683961703060398d356"},
+    {file = "django_picklefield-3.1-py3-none-any.whl", hash = "sha256:d77c504df7311e8ec14e8b779f10ca6fec74de6c7f8e2c136e1ef60cf955125d"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[package.extras]
+tests = ["tox"]
+
+[[package]]
+name = "django-q2"
+version = "1.6.1"
+description = "A multiprocessing distributed task queue for Django"
+optional = false
+python-versions = ">=3.8,<4"
+files = [
+    {file = "django_q2-1.6.1-py3-none-any.whl", hash = "sha256:0944b6cbb73671d471fa970a3807e294d750a224764986cff5bff0fe6daa7f7d"},
+    {file = "django_q2-1.6.1.tar.gz", hash = "sha256:38fa67e5f75d172ef59a1edcc891cb5f8f0fb863f95a6ada4c44dd3f2d5bda53"},
+]
+
+[package.dependencies]
+django = ">=3.2,<6"
+django-picklefield = ">=3.1,<4.0"
+
+[package.extras]
+rollbar = ["django-q-rollbar (>=0.1)"]
+sentry = ["django-q-sentry (>=0.1)"]
+testing = ["blessed (>=1.19.1,<2.0.0)", "boto3 (>=1.24.92,<2.0.0)", "croniter (>=2.0.1,<3.0.0)", "django-redis (>=5.2.0,<6.0.0)", "hiredis (>=2.0.0,<3.0.0)", "iron-mq (>=0.9,<0.10)", "psutil (>=5.9.2,<6.0.0)", "pymongo (>=4.2.0,<5.0.0)", "redis (>=4.3.4,<5.0.0)", "setproctitle (>=1.3.2,<2.0.0)"]
+
+[[package]]
 name = "djangorestframework"
 version = "3.14.0"
 description = "Web APIs for Django, made easy."
@@ -471,4 +508,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "e08c52f3b6ca7428237fc618aea03487583446372255d7566e71d72e5280f4d6"
+content-hash = "ff5ef50f61f461f074d44c9fce9497a8699684ed761d5a09b8f10cd395fbc52f"

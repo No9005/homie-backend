@@ -1,5 +1,6 @@
 #!/bin/sh
 /web/app/src/manage.py collectstatic --noinput --clear
+/web/app/src/manage.py migrate
 
 if [ $ENVIRONMENT = "dev" ]
 then

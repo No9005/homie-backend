@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "phonenumber_field",
     "django_filters",
+    "django_q",
     ## custom apps ##
     "data",
 ]
@@ -171,3 +172,16 @@ if ENABLE_DJANGO_DEBUG_TOOLBAR:
         return True
 
     DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
+
+## Django Q2
+# see: https://django-q2.readthedocs.io/en/latest/configure.html
+Q_CLUSTER = {
+    "name": "homie_core",
+    "workers": 2,
+    "recycle": 2,
+    "timeout": 60,
+    "retry": 2,
+    "label": "Django Q",
+    "catch_up": True,
+    "orm": "default",
+}

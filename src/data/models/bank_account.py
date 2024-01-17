@@ -9,8 +9,8 @@ class BankAccount(models.Model):
         blank=False,
         verbose_name=_("Name"),
     )
-    IBAN = models.TextField(
-        max_length=20,
+    IBAN = models.CharField(
+        max_length=60,
         null=True,
         blank=True,
         unique=True,

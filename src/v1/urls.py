@@ -34,6 +34,11 @@ router.register(
     viewsets.TransactionViewSet,
     basename="TransactionViewSet",
 )
+router.register(
+    r"cron-job",
+    viewsets.CronJobViewSet,
+    basename="CronJobViewSet",
+)
 
 app_name = "v1"
 urlpatterns = router.urls
