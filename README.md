@@ -6,7 +6,7 @@ The **homie** app is a buget book consisting of two parts:
 This part of the project is the python REST-api. <br>
 <br>
 The idea is to separate the user interface from the backend to be able to mix and match tools. <br>
-This makes it also possible to swap out the frontend (or backend) to your own solution and custome project. <br>
+This makes it also possible to swap out the frontend (or backend) for your own solution. <br>
 
 ## Development
 ### Prerequisites
@@ -25,8 +25,10 @@ This makes it also possible to swap out the frontend (or backend) to your own so
 
 ### Dev environment customization
 All changeable environment variables are found in the `docker-compose.yml`. <br>
+<br>
 If you want to customize certain parts of the app for your development process, you can create an `.env` and add the specific keys you want to change. <br>
-Example:
+<br>
+**Example**:
 If you want to enable the Django debug toolbar, you just have to write the corresponding key from the `docker-compose-yml`:
 ```yml
    ...
