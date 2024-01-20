@@ -5,19 +5,19 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class TaxConsultant(models.Model):
-    firstname = models.TextField(
+    firstname = models.CharField(
         max_length=20,
         null=False,
         blank=False,
         verbose_name=_("Firstname"),
     )
-    lastname = models.TextField(
+    lastname = models.CharField(
         max_length=20,
         null=False,
         blank=False,
         verbose_name=_("Lastname"),
     )
-    street = models.TextField(
+    street = models.CharField(
         max_length=100,
         null=True,
         blank=True,
@@ -33,7 +33,7 @@ class TaxConsultant(models.Model):
         blank=True,
         verbose_name=_("Postal"),
     )
-    city = models.TextField(
+    city = models.CharField(
         max_length=20,
         null=True,
         blank=True,
@@ -45,7 +45,7 @@ class TaxConsultant(models.Model):
         null=True,
         verbose_name=_("Phone"),
     )
-    email = models.TextField(
+    email = models.CharField(
         max_length=50,
         null=True,
         blank=True,

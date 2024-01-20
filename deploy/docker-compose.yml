@@ -8,7 +8,6 @@ services:
     container_name: homie_core
     restart: unless-stopped
     volumes:
-      - ${DATABASE_LOCATION}:/web/app/database
       - ${ENTRYPOINT_LOCATION_PROD}:/web/app/entrypoint/start.sh
 
   homie_core_q:
@@ -17,7 +16,6 @@ services:
       - homie_core
     restart: unless-stopped
     volumes:
-      - ${DATABASE_LOCATION}:/web/app/database
       - ${ENTRYPOINT_LOCATION_QCLUSTER}:/web/app/entrypoint/start.sh
 
 networks:

@@ -3,6 +3,7 @@ FROM python:3.11-slim-bookworm
 ARG user=appuser
 
 RUN apt update && apt upgrade
+RUN apt-get install --assume-yes python3-dev default-libmysqlclient-dev build-essential pkg-config
 RUN python -m pip install --upgrade pip
 
 RUN mkdir -p /web/app

@@ -16,7 +16,7 @@ class Transaction(models.Model):
         verbose_name=_("Amount"),
     )
     description = models.TextField(
-        max_length=140,
+        max_length=250,
         null=False,
         blank=False,
         verbose_name=_("Description"),
@@ -48,10 +48,11 @@ class Transaction(models.Model):
         blank=False,
         verbose_name=_("Bank Account"),
     )
-    cash_flow_type = models.TextField(
+    cash_flow_type = models.CharField(
         choices=CashFlowChoices.choices,
         null=False,
         default=CashFlowChoices.SPENDING,
+        max_length=50,
         verbose_name=_("Cash Flow type"),
     )
     tax_consultant = models.ForeignKey(

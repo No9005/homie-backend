@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Category(models.Model):
-    name = models.TextField(
+    name = models.CharField(
         max_length=50,
         null=False,
         blank=False,

@@ -9,15 +9,17 @@ services:
     restart: unless-stopped
     volumes:
       - .:/web/app
-      - ./database:/web/app/database
     environment:
       DJANGO_SETTINGS_MODULE: homie.settings
       VIRTUAL_HOST: api.homie-dev.com
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-"CHOOSE_OTHER_KEY_FOR_PRODUCTION"}
       DEBUG: ${DEBUG:-True}
-      ENVIRONMENT: ${ENVIRONMENT:-dev}
       ALLOWED_HOSTS: ${ALLOWED_HOSTS:-api.homie-dev.com}
       ENABLE_DJANGO_DEBUG_TOOLBAR: ${ENABLE_DJANGO_DEBUG_TOOLBAR:-False}
+      MYSQL_DB_NAME: homie_core
+      MYSQL_USER: homie_core
+      MYSQL_PASSWORD: homie_core_password
+      MYSQL_HOST: homie_database
 
   nginx-proxy:
     image: jwilder/nginx-proxy:1.2.3-alpine
@@ -33,8 +35,39 @@ services:
     environment:
       HTTPS_METHOD: noredirect
       TZ: Europe/Berlin
-  
 
+  mysql:
+    image: mysql:8.0.32
+    container_name: homie_database
+    restart: unless-stopped
+    command: >
+      --max_allowed_packet=1024MB --sql_mode="" --collation-server=utf8mb4_unicode_ci --sort-buffer-size=256M
+      --character-set-server=utf8mb4 --default-authentication-plugin=mysql_native_password
+    ports:
+      - "127.0.0.1:33065:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+      - ./database/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Europe/Berlin
+
+  phpmyadmin:
+    image: phpmyadmin:5.2-apache
+    container_name: homie_database_frontend
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: homie_database
+      PMA_USER: root
+      PMA_PASSWORD: password
+      UPLOAD_LIMIT: 512M
+      VIRTUAL_HOST: phpmyadmin.homie-dev.com
+      TZ: Europe/Berlin
+  
 networks:
   default:
     name: homie
