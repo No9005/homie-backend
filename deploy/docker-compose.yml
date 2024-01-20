@@ -1,0 +1,26 @@
+name: homie_core
+services:
+
+  homie_core:
+    build:
+      context: .
+    image: homie_core
+    container_name: homie_core
+    restart: unless-stopped
+    volumes:
+      - ${DATABASE_LOCATION}:/web/app/database
+      - ${ENTRYPOINT_LOCATION_PROD}:/web/app/entrypoint/start.sh
+
+  homie_core_q:
+    image: homie_core
+    depends_on: 
+      - homie_core
+    restart: unless-stopped
+    volumes:
+      - ${DATABASE_LOCATION}:/web/app/database
+      - ${ENTRYPOINT_LOCATION_QCLUSTER}:/web/app/entrypoint/start.sh
+
+networks:
+  default:
+    name: ${NETWORK_NAME}
+    external: true
