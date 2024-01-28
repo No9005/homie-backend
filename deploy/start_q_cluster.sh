@@ -1,2 +1,2 @@
 #!/bin/sh
-/web/app/src/manage.py qcluster
+/web/app/src/manage.py qcluster &
