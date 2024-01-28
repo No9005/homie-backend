@@ -13,7 +13,7 @@ services:
       VIRTUAL_HOST: ${VIRTUAL_HOST}
 
   homie_core_q:
-    image: homie_core
+    image: homie_core:1.0.0
     depends_on: 
       - homie_core
     restart: unless-stopped
