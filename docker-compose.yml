@@ -4,7 +4,7 @@ services:
   homie_core:
     build:
       context: .
-    image: homie_core:1.0.0
+    image: homie_core:1.0.1
     container_name: homie_core
     restart: unless-stopped
     volumes:
